@@ -7,16 +7,110 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <!-- component -->
+    <div class="mt-8">
+        <div class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-50 to-gray-200 py-12 px-4 sm:px-6 lg:px-8 relative items-center">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.name) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            <div class="absolute bg-gradient-to-br from-sky-50 to-gray-200 inset-0 z-0"></div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <div class="max-w-md w-full space-y-8 p-10 bg-white rounded-xl z-10">
+                <div class="text-center">
+                    <h2 class="mt-1 text-3xl font-bold text-gray-900">
+                        Welcom Back!
+                    </h2>
+                    <p class="mt-2 text-sm text-gray-600">Please sign in to your account</p>
+                </div>
+
+                
+                <div class="mt-8 space-y-6">
+                {{ form_start(registrationForm) }}
+
+                    <div class="mt-8 content-center">
+                        {{ form_label(registrationForm.name, 'Names', {
+                            'label_attr': {'class': 'text-sm font-bold text-gray-700 tracking-wide'}
+                        }) }}
+                        {{ form_widget(registrationForm.name, {
+                            'attr': {
+                                'class': 'w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500',
+                                'placeholder': 'John Doe'
+                        }}) }}
+                        <!--                    
+                        <input class="w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="John Doe" value="" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                        -->
+                    </div>
+
+                    <div class="mt-8 content-center">
+                        {{ form_label(registrationForm.email, 'Email', {
+                            'label_attr': {'class': 'text-sm font-bold text-gray-700 tracking-wide'}
+                        }) }}
+                        {{ form_widget(registrationForm.email, {
+                            'attr': {
+                                'class': 'w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500',
+                                'placeholder': 'mail@gmail.com'
+                        }}) }}
+                        <!--
+                        <input class="w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="email" placeholder="mail@gmail.com" value="" name="email" id="inputEmail" autocomplete="email" required autofocus>
+                        -->
+                    </div>
+
+                    <div class="mt-8 content-center">
+                        {{ form_label(registrationForm.plainPassword, 'Password', {
+                            'label_attr': {'class': 'text-sm font-bold text-gray-700 tracking-wide'}
+                        }) }}
+                        {{ form_widget(registrationForm.plainPassword, {
+                            'attr': {
+                                'class': 'w-full text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500',
+                                'placeholder': 'Enter your password'
+                        }}) }}
+                        <!--
+                        <label class="text-sm font-bold text-gray-700 tracking-wide" for="inputPassword">
+                            Password
+                        </label>
+                        
+                        <input class="w-full content-center text-base py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password" id="inputPassword" autocomplete="current-password" required>
+                        -->
+                    </div>
+
+                    <div class="flex items-center justify-between mt-4">
+                        <div class="flex items-center">
+                            {{ form_widget(registrationForm.agreeTerms, {
+                                'attr': {'class': 'h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded'
+                            }}) }}
+                            {{ form_label(registrationForm.agreeTerms, 'Agree terms', {
+                                'label_attr': {'class': 'ml-2 block text-sm font-bold text-gray-700 tracking-wide'}
+                            }) }}
+
+                            <!--
+                            <input id="_remember_me" name="_remember_me" type="checkbox" class="h-4 w-4 bg-indigo-500 focus:ring-indigo-400 border-gray-300 rounded">
+                            -->
+                            <!--
+                            <label for="_remember_me" class="ml-2 block text-sm text-gray-900">
+                                    Remember me
+                            </label>
+                            -->
+                        </div>
+
+                        <div class="text-sm">
+                            <a href="{{ url('app_login') }}" class="font-medium text-indigo-500 hover:text-indigo-500">
+                                        You have account? Login
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="w-full flex justify-center bg-indigo-500 text-gray-100 p-4  rounded-full tracking-wide
+                                        font-semibold  focus:outline-none focus:shadow-outline hover:bg-indigo-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                            Sign in
+                        </button>
+                    </div>
+                {{ form_end(registrationForm) }}
+                </div>
+
+                <div class="mt-32 space-y-4 text-gray-600 text-center sm:-mb-8">
+                    <p class="text-xs">By proceeding, you agree to our <a href="#" class="underline">Terms of Use</a> and confirm you have read our <a href="#" class="underline">Privacy and Cookie Statement</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
